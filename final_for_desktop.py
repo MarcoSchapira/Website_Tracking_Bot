@@ -26,7 +26,7 @@ def SendeMail(websiteName, NumBedrooms):
         smtp.starttls()
         smtp.ehlo()
 
-        smtp.login("qhousingbot@gmail.com", "jjmumkxfduwekvni") #jjmumkxfduwekvni
+        smtp.login("qhousingbot@gmail.com", "***********") #Replace with your email information
 
         subject = 'House posted on ' + websiteName + ' website'
         body = 'This house has ' + NumBedrooms + ' bedrooms'
@@ -34,25 +34,6 @@ def SendeMail(websiteName, NumBedrooms):
         msg = f'Subject: {subject}\n\n{body}'
 
         smtp.sendmail("qhousingbot@gmail.com", '21mjs15@queensu.ca', msg)
-        smtp.sendmail("qhousingbot@gmail.com", '20an46@queensu.ca', msg)
-        smtp.sendmail("qhousingbot@gmail.com", '20tdm2@queensu.ca', msg)
-        smtp.sendmail("qhousingbot@gmail.com", '20cjcj@queensu.ca', msg)
-
-def SendQueenseMail():
-    with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
-        smtp.ehlo()
-        smtp.starttls()
-        smtp.ehlo()
-
-        smtp.login("mjschapira@gmail.com", "ypnctwoogfqttcsr") #ypnctwoogfqttcsr
-
-        subject = '184 University'
-        body = 'Hi,\n\nI am a Queens University Student and I just saw your property listed on the queens lising service for 184 University street! My friends and I have been constantly monitoring your website for the last month in the hopes of being first to apply. I hope that the house is still avaliable and if so, what are the next steps to finilizing a lease. \nMy student number is 20294325 and my student email is 21mjs15@queensu.ca\n\nThanks,\nMarco Schapira'
-
-        msg = f'Subject: {subject}\n\n{body}' 
-
-        smtp.sendmail("mjschapira@gmail.com", 'community.housing@queensu.ca', msg)#community.housing@queensu.ca
-
 
 firstRun = True
 emailsent = False
@@ -84,7 +65,6 @@ while True:
         print("The queens house at 184 University is not posted")
 
     if (thequeenshouse != 0) & (emailsent == False):
-        SendQueenseMail()
         SendeMail("184 UNIVERSITY AVENUE", "6")
         emailsent = True
 
